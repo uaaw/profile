@@ -1,0 +1,134 @@
+---
+const iconRoot = '/icons';
+
+const categories = [
+  {
+    title: 'Languages',
+    items: [
+      { label: 'Shell', icon: `${iconRoot}/Bash-Dark.svg` },
+      { label: 'C', icon: `${iconRoot}/C.svg` },
+      { label: 'Cpp', icon: `${iconRoot}/CPP.svg` },
+      { label: 'Css', icon: `${iconRoot}/CSS.svg` },
+      { label: 'Go', icon: `${iconRoot}/GoLang.svg` },
+      { label: 'Html', icon: `${iconRoot}/HTML.svg` },
+      { label: 'Js', icon: `${iconRoot}/JavaScript.svg` },
+      { label: 'Ts', icon: `${iconRoot}/TypeScript.svg` },
+      { label: 'Python', icon: `${iconRoot}/Python-Dark.svg` },
+      { label: 'Rust', icon: `${iconRoot}/Rust.svg` },
+      { label: 'Zig', icon: `${iconRoot}/Zig-Dark.svg` },
+    ],
+  },
+  {
+    title: 'Frameworks',
+    items: [
+      { label: 'Express', icon: `${iconRoot}/ExpressJS-Dark.svg` },
+      { label: 'Vue', icon: `${iconRoot}/VueJS-Dark.svg` },
+      { label: 'Next.js', icon: `${iconRoot}/NextJS-Dark.svg` },
+      { label: 'React', icon: `${iconRoot}/React-Dark.svg` },
+      { label: 'React native', icon: `${iconRoot}/React-Dark.svg` },
+      { label: 'Astro', icon: `${iconRoot}/Astro.svg` },
+      { label: 'Django', icon: `${iconRoot}/Django.svg` },
+      { label: 'Fast api', icon: `${iconRoot}/FastAPI.svg` },
+      { label: 'Flask', icon: `${iconRoot}/Flask-Dark.svg` },
+      { label: 'Tailwind css', icon: `${iconRoot}/TailwindCSS-Dark.svg` },
+    ],
+  },
+  {
+    title: 'Databases',
+    items: [
+      { label: 'Mysql', icon: `${iconRoot}/MySQL-Dark.svg` },
+      { label: 'Postgresql', icon: `${iconRoot}/PostgreSQL-Dark.svg` },
+      { label: 'Sqllite', icon: `${iconRoot}/SQLite.svg` },
+    ],
+  },
+  {
+    title: 'Infrastructure',
+    items: [
+      { label: 'Aws', icon: `${iconRoot}/AWS-Dark.svg` },
+      { label: 'Azure', icon: `${iconRoot}/Azure-Dark.svg` },
+      { label: 'Gcp', icon: `${iconRoot}/GCP-Dark.svg` },
+      { label: 'render', icon: `${iconRoot}/render.svg` },
+      { label: 'vercel', icon: `${iconRoot}/Vercel-Dark.svg` },
+      { label: 'cloudflare worker&pages', icon: `${iconRoot}/Cloudflare-Dark.svg` },
+    ],
+  },
+  {
+    title: 'Development Environment',
+    items: [
+      { label: 'Acode', icon: `${iconRoot}/acode.svg` },
+      { label: 'Termux', icon: `${iconRoot}/termux.svg` },
+    ],
+  },
+];
+---
+
+<section>
+  <h2 class="section-title">Tech Stack</h2>
+  <div class="categories">
+    {
+      categories.map((cat) => (
+        <div class="category">
+          <h3 class="category-title">{cat.title}</h3>
+          <div class="items">
+            {cat.items.map((item) => (
+              <div class="item">
+                <img class="icon" src={item.icon} alt={item.label} width="24" height="24" loading="lazy" />
+                <span class="label">{item.label}</span>
+              </div>
+            ))}
+          </div>
+        </div>
+      ))
+    }
+  </div>
+</section>
+
+<style>
+  .section-title {
+    font-size: 1.6rem;
+    font-weight: 300;
+    color: var(--header-color);
+    margin-bottom: 2rem;
+    letter-spacing: -0.02em;
+  }
+
+  .categories {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+  }
+
+  .category-title {
+    font-size: 0.8rem;
+    font-weight: 500;
+    color: var(--light-gray);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin-bottom: 0.75rem;
+  }
+
+  .items {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem 0.75rem;
+  }
+
+  .item {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.375rem;
+    background: var(--tainted-black);
+    border: 1px solid var(--border-color);
+    padding: 0.25rem 0.6rem;
+  }
+
+  .icon {
+    width: 20px;
+    height: 20px;
+  }
+
+  .label {
+    font-size: 0.85rem;
+    color: var(--primary-text);
+  }
+</style>

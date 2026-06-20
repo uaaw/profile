@@ -1,0 +1,60 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Navbar from '../components/Navbar.astro';
+import CrystalCanvas from '../components/CrystalCanvas.astro';
+import ProfileSection from '../components/ProfileSection.astro';
+import SnsSection from '../components/SnsSection.astro';
+import TechStackSection from '../components/TechStackSection.astro';
+import ProjectSection from '../components/ProjectSection.astro';
+---
+
+<Layout title="eris/uaaw/nero">
+  <Navbar />
+  <main>
+    <section class="hero">
+      <div class="hero-crystal">
+        <CrystalCanvas />
+      </div>
+      <div class="hero-content">
+        <h1>eris/uaaw/nero</h1>
+        <p class="hero-tagline">さいよわなジュニアエンジニアです…</p>
+        <div class="hero-actions">
+          <a href="https://github.com/uaaw" class="hex" target="_blank" rel="noopener noreferrer">GitHub</a>
+          <a href="https://uaaw.dev" class="hex">Web</a>
+          <a href="mailto:a@od.je" class="hex">Contact</a>
+        </div>
+      </div>
+    </section>
+
+    <div id="profile">
+      <ProfileSection />
+    </div>
+
+    <div id="sns">
+      <SnsSection />
+    </div>
+
+    <div id="tech-stack">
+      <TechStackSection />
+    </div>
+
+    <div id="projects">
+      <ProjectSection />
+    </div>
+  </main>
+</Layout>
+
+<style>
+  .hero-actions {
+    display: flex;
+    gap: 0.75rem;
+    margin-top: 1.5rem;
+    flex-wrap: wrap;
+  }
+
+  @media (max-width: 767px) {
+    .hero-actions {
+      justify-content: center;
+    }
+  }
+</style>

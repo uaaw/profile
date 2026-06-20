@@ -1,0 +1,78 @@
+---
+---
+
+<section>
+  <h2 class="section-title">Profile</h2>
+  <dl class="profile-list">
+    <div class="profile-item">
+      <dt>名前</dt>
+      <dd>eris / uaaw / nero</dd>
+    </div>
+    <div class="profile-item">
+      <dt>年齢</dt>
+      <dd>中学生（学年は非公開）</dd>
+    </div>
+    <div class="profile-item">
+      <dt>所属団体</dt>
+      <dd>The psf member</dd>
+    </div>
+    <div class="profile-item">
+      <dt>趣味・好きなこと</dt>
+      <dd>コーディング・ドメイン・技術者支援・ossへの貢献・歴史</dd>
+    </div>
+    <div class="profile-item">
+      <dt>一言</dt>
+      <dd>使ったことのある技術が多いだけのジュニアエンジニアです。</dd>
+    </div>
+    <div class="profile-item">
+      <dt>得意分野</dt>
+      <dd>文系科目とバックエンド</dd>
+    </div>
+  </dl>
+</section>
+
+<style>
+  .section-title {
+    font-size: 1.6rem;
+    font-weight: 300;
+    color: var(--header-color);
+    margin-bottom: 2rem;
+    letter-spacing: -0.02em;
+  }
+
+  .profile-list {
+    display: grid;
+    gap: 1.5rem;
+  }
+
+  .profile-item {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+  }
+
+  .profile-item dt {
+    font-weight: 500;
+    font-size: 0.85rem;
+    color: var(--light-gray);
+  }
+
+  .profile-item dd {
+    font-size: 1rem;
+    line-height: 1.6;
+    color: var(--primary-text);
+  }
+
+  @media (min-width: 640px) {
+    .profile-item {
+      flex-direction: row;
+      align-items: baseline;
+      gap: 1rem;
+    }
+
+    .profile-item dt {
+      min-width: 10rem;
+      flex-shrink: 0;
+    }
+  }
+</style>

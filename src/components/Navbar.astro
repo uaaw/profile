@@ -1,0 +1,64 @@
+---
+---
+<nav class="navbar">
+  <a href="#hero" class="nav-brand">eris/uaaw/nero</a>
+  <ul class="nav-links">
+    <li><a href="#profile">Profile</a></li>
+    <li><a href="#sns">Links</a></li>
+    <li><a href="#tech-stack">Tech Stack</a></li>
+    <li><a href="#projects">Projects</a></li>
+  </ul>
+</nav>
+
+<style>
+  .navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 2rem;
+    height: 56px;
+    background-color: #0d0d0d;
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    font-family: 'Roboto', sans-serif;
+  }
+
+  .nav-brand {
+    color: #ffffff;
+    font-size: 1.25rem;
+    font-weight: 700;
+    text-decoration: none;
+    letter-spacing: 0.02em;
+  }
+
+  .nav-brand:hover {
+    color: #cccccc;
+  }
+
+  .nav-links {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  .nav-links a {
+    color: #b0b0b0;
+    font-size: 0.9rem;
+    font-weight: 400;
+    text-decoration: none;
+    letter-spacing: 0.03em;
+    transition: color 0.2s ease;
+  }
+
+  .nav-links a:hover {
+    color: #ffffff;
+  }
+</style>

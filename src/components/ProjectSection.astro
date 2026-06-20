@@ -1,0 +1,96 @@
+---
+const projects = [
+  {
+    name: 'fluxer-zig',
+    description: 'fluxer zigライブラリ',
+    url: 'https://github.com/uaaw/fluxer-zig.git',
+  },
+  {
+    name: 'rsjp-short-link',
+    description: 'JP Rustaceanのための短縮リンクサービス',
+    url: 'https://github.com/uaaw/rsjp_short_link.git',
+  },
+  {
+    name: 'canaris.net',
+    description: 'discord developer コミュニティ',
+    url: 'https://invd.canaris.net',
+  },
+];
+---
+
+<section>
+  <h2 class="section-title">Projects</h2>
+  <div class="projects-grid">
+    {
+      projects.map((project) => (
+        <a
+          class="card"
+          href={project.url}
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <h3 class="project-name">{project.name}</h3>
+          <p class="project-desc">{project.description}</p>
+          <span class="project-link">{project.url}</span>
+        </a>
+      ))
+    }
+  </div>
+</section>
+
+<style>
+  .section-title {
+    font-size: 1.6rem;
+    font-weight: 300;
+    color: var(--header-color);
+    margin-bottom: 2rem;
+    letter-spacing: -0.02em;
+  }
+
+  .projects-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  @media (min-width: 768px) {
+    .projects-grid {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+
+  .card {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    padding: 1.5rem;
+    background: var(--tainted-black);
+    border: 1px solid var(--border-color);
+    text-decoration: none;
+    color: var(--primary-text);
+    transition: border-color 0.2s, background 0.2s;
+  }
+
+  .card:hover {
+    border-color: var(--accent);
+    background: var(--mine-shaft);
+  }
+
+  .project-name {
+    font-weight: 500;
+    font-size: 1.1rem;
+    color: var(--header-color);
+  }
+
+  .project-desc {
+    font-size: 0.85rem;
+    color: var(--light-gray);
+    line-height: 1.5;
+  }
+
+  .project-link {
+    font-size: 0.8rem;
+    color: var(--accent);
+    word-break: break-all;
+  }
+</style>

@@ -1,0 +1,131 @@
+---
+const iconRoot = '/icons';
+
+const links = [
+  { name: 'GitHub', icon: `${iconRoot}/Github-Dark.svg`, href: 'https://github.com/uaaw', username: 'uaaw' },
+  { name: 'X', icon: `${iconRoot}/Twitter.svg`, href: 'https://x.com/eris_dev', username: '@eris_dev' },
+  { name: 'Discord', icon: `${iconRoot}/Discord.svg`, href: null, username: 'rxkv' },
+  { name: 'Fluxer', icon: `${iconRoot}/fluxer.svg`, href: null, username: '0 #0002' },
+  { name: 'Zenn', icon: `${iconRoot}/zenn.svg`, href: 'https://zenn.dev/uaaw', username: '@uaaw' },
+  { name: 'Qiita', icon: `${iconRoot}/qiita.svg`, href: 'https://qiita.com/uaaw', username: 'uaaw' },
+  { name: 'Web', icon: null, href: 'https://uaaw.dev', username: 'uaaw.dev' },
+  { name: 'Mail', icon: `${iconRoot}/Gmail-Dark.svg`, href: 'mailto:a@od.je', username: 'a@od.je' },
+];
+---
+
+<section>
+  <h2 class="section-title">Links</h2>
+  <ul class="sns-grid">
+    {links.map((link) => (
+      <li class="sns-item">
+        {link.href ? (
+          <a
+            href={link.href}
+            target={link.href.startsWith('http') ? '_blank' : undefined}
+            rel={link.href.startsWith('http') ? 'noopener noreferrer' : undefined}
+            class="sns-link"
+            aria-label={link.name + ': ' + link.username}
+          >
+            <span class="sns-icon">
+              {link.icon ? (
+                <img src={link.icon} alt={link.name} width="24" height="24" />
+              ) : link.name === 'Web' ? (
+                <svg role="img" aria-label="Web" viewBox="0 0 24 24" width="24" height="24" xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <circle cx="12" cy="12" r="10"/>
+                  <line x1="2" y1="12" x2="22" y2="12"/>
+                  <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/>
+                </svg>
+              ) : null}
+            </span>
+            <span class="sns-name">{link.username}</span>
+          </a>
+        ) : (
+          <span class="sns-link no-link" aria-label={link.name}>
+            <span class="sns-icon">
+              {link.icon ? (
+                <img src={link.icon} alt={link.name} width="24" height="24" />
+              ) : (
+                <svg role="img" aria-label={link.name} viewBox="0 0 24 24" width="24" height="24" xmlns="http://www.w3.org/2000/svg">
+                  <circle cx="12" cy="12" r="10" fill="currentColor"/>
+                  <text x="12" y="16" text-anchor="middle" fill="#1a1a1a" font-size="10" font-family="sans-serif">{link.name[0]}</text>
+                </svg>
+              )}
+            </span>
+            <span class="sns-name">{link.username}</span>
+          </span>
+        )}
+      </li>
+    ))}
+  </ul>
+</section>
+
+<style>
+  .section-title {
+    font-size: 1.6rem;
+    font-weight: 300;
+    color: var(--header-color);
+    margin-bottom: 2rem;
+    letter-spacing: -0.02em;
+  }
+
+  .sns-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.75rem;
+    list-style: none;
+  }
+
+  .sns-link {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 0.75rem 1rem;
+    text-decoration: none;
+    color: var(--primary-text);
+    background: var(--tainted-black);
+    border: 1px solid var(--border-color);
+    transition: border-color 0.2s, color 0.2s;
+  }
+
+  .sns-link:hover {
+    color: var(--accent);
+    border-color: var(--accent);
+  }
+
+  .sns-link.no-link {
+    cursor: default;
+  }
+
+  .sns-link.no-link:hover {
+    color: var(--primary-text);
+    border-color: var(--border-color);
+  }
+
+  .sns-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+
+  .sns-icon img {
+    width: 24px;
+    height: 24px;
+  }
+
+  .sns-icon svg {
+    width: 24px;
+    height: 24px;
+  }
+
+  .sns-name {
+    font-size: 0.9rem;
+    word-break: break-all;
+  }
+
+  @media (min-width: 640px) {
+    .sns-grid {
+      grid-template-columns: repeat(4, 1fr);
+    }
+  }
+</style>
