@@ -3,6 +3,11 @@ name: Deploy to GitHub Pages
 on:
   push:
     branches: [main, master]
+  workflow_dispatch:
+
+concurrency:
+  group: "pages"
+  cancel-in-progress: true
 
 jobs:
   build-and-deploy:
@@ -16,6 +21,7 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: '>=22'
+          cache: 'npm'
 
       - name: Install dependencies
         run: npm ci
@@ -29,3 +35,4 @@ jobs:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./dist
           cname: uaaw.dev
+          # force_orphan: true   # 古い履歴を削除したい場合（任意）
