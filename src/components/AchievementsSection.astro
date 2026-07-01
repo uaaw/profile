@@ -1,0 +1,128 @@
+---
+const achievements = [
+  {
+    title: 'CVE-2026-49991',
+    severity: 'HIGH',
+    score: '8.6',
+    description: 'RustFS v1.0.0-beta.4 の Snowball 自動展開機能におけるパストラバーサル + 認可不備によるマルチテナンシー分離回避',
+    type: 'Vulnerability',
+    link: 'https://github.com/rustfs/rustfs/security/advisories/GHSA-f4vq-9ffr-m8m3',
+  },
+];
+---
+
+<section>
+  <h2 class="section-title">Achievements</h2>
+  <div class="achievements-grid">
+    {achievements.map((item) => (
+      <a class="achievement-card" href={item.link} target="_blank" rel="noopener noreferrer">
+        <div class="achievement-badge">
+          <img src="/icons/cve.png" alt="CVE" width="48" height="48" class="badge-icon" />
+          <span class="badge-score">{item.score}</span>
+        </div>
+        <div class="achievement-body">
+          <h3 class="achievement-title">{item.title}</h3>
+          <p class="achievement-desc">{item.description}</p>
+          <span class={`achievement-severity severity-${item.severity.toLowerCase()}`}>{item.severity}</span>
+        </div>
+      </a>
+    ))}
+  </div>
+</section>
+
+<style>
+  .section-title {
+    font-size: 1.6rem;
+    font-weight: 300;
+    color: var(--header-color);
+    margin-bottom: 2rem;
+    letter-spacing: -0.02em;
+  }
+
+  .achievements-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  .achievement-card {
+    display: flex;
+    flex-direction: column;
+    background: var(--tainted-black);
+    border: 1px solid var(--border-color);
+    text-decoration: none;
+    color: var(--primary-text);
+    transition: border-color 0.2s;
+    overflow: hidden;
+  }
+
+  .achievement-card:hover {
+    border-color: var(--accent);
+  }
+
+  .achievement-badge {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 0.25rem;
+    padding: 1rem;
+    background: var(--mine-shaft);
+    min-width: 80px;
+  }
+
+  .badge-icon {
+    width: 48px;
+    height: 48px;
+  }
+
+  .badge-score {
+    font-size: 1.5rem;
+    font-weight: 500;
+    color: var(--accent);
+  }
+
+  .achievement-body {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    padding: 1.25rem;
+  }
+
+  .achievement-title {
+    font-weight: 500;
+    font-size: 1.1rem;
+    color: var(--header-color);
+  }
+
+  .achievement-desc {
+    font-size: 0.85rem;
+    color: var(--light-gray);
+    line-height: 1.6;
+  }
+
+  .achievement-severity {
+    display: inline-block;
+    width: fit-content;
+    padding: 0.2rem 0.6rem;
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    font-weight: 500;
+    letter-spacing: 0.03em;
+  }
+
+  .severity-high {
+    background: hsl(0, 80%, 40%);
+    color: white;
+  }
+
+  @media (min-width: 640px) {
+    .achievement-card {
+      flex-direction: row;
+    }
+
+    .achievement-badge {
+      padding: 1.5rem;
+    }
+  }
+</style>
