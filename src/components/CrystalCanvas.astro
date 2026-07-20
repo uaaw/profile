@@ -35,10 +35,10 @@
   renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
 
   const material = new THREE.MeshStandardMaterial({
-    color: 0x3a3a3a,
+    color: 0x89CFF0,
     flatShading: true,
-    metalness: 0.4,
-    roughness: 0.35,
+    metalness: 0.1,
+    roughness: 0.5,
   });
 
   const halfHeight = 1.5;
@@ -60,10 +60,10 @@
   crystal.add(bottomMesh);
   scene.add(crystal);
 
-  const ambientLight = new THREE.AmbientLight(0xffffff, 0.15);
+  const ambientLight = new THREE.AmbientLight(0xaaccdd, 0.4);
   scene.add(ambientLight);
 
-  const dirLight = new THREE.DirectionalLight(0xffffff, 1.5);
+  const dirLight = new THREE.DirectionalLight(0xddeeff, 1.2);
   dirLight.position.set(5, 5, 10);
   scene.add(dirLight);
 

@@ -6,14 +6,14 @@ const projects = [
     url: 'https://github.com/uaaw/fluxer-zig.git',
   },
   {
-    name: 'rsjp-short-link',
-    description: 'JP Rustaceanのための短縮リンクサービス',
-    url: 'https://github.com/uaaw/rsjp_short_link.git',
+    name: 'purus',
+    description: 'A modern programming language',
+    url: 'https://github.com/puruslang/purus.git',
   },
   {
-    name: 'canaris.net',
-    description: 'discord developer コミュニティ',
-    url: 'https://invd.canaris.net',
+    name: 'fluxer',
+    description: 'fluxer公式ウェブサイトの和訳監修',
+    url: 'https://github.com/fluxerapp/fluxer.git',
   },
 ];
 ---
@@ -64,16 +64,7 @@ const projects = [
     flex-direction: column;
     gap: 0.75rem;
     padding: 1.5rem;
-    background: var(--tainted-black);
-    border: 1px solid var(--border-color);
-    text-decoration: none;
-    color: var(--primary-text);
     transition: border-color 0.2s, background 0.2s;
-  }
-
-  .card:hover {
-    border-color: var(--accent);
-    background: var(--mine-shaft);
   }
 
   .project-name {

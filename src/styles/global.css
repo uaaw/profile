@@ -3,31 +3,31 @@
   --sin-70: 0.93;
 
   --white: hsl(0, 0%, 100%);
-  --pitch-black: hsl(0, 0%, 3%);
+  --pitch-black: #c8d6f1;
   --black: hsl(0, 0%, 11%);
-  --tainted-black: hsl(0, 0%, 16%);
-  --mine-shaft: hsl(0, 0%, 19%);
-  --light-gray: hsl(0, 0%, 44%);
+  --tainted-black: #e2e8f7;
+  --mine-shaft: #d0daf2;
+  --light-gray: #A9C1F1;
   --lighter-gray: hsl(0, 0%, 56%);
   --tainted-white: hsl(0, 0%, 96%);
   --alabaster: rgb(237, 237, 237);
 
-  --background-main: var(--black);
-  --background-secondary: var(--tainted-black);
-  --background-tertiary: var(--mine-shaft);
+  --background-main: #f0f4ff;
+  --background-secondary: #e2e8f7;
+  --background-tertiary: #d0daf2;
 
-  --primary-text: hsl(0, 0%, 84%);
-  --light-text: var(--lighter-gray);
-  --lighter-text: var(--tainted-white);
-  --header-color: var(--white);
+  --primary-text: #2d3a5c;
+  --light-text: #556688;
+  --lighter-text: #7788aa;
+  --header-color: #1a2d4a;
 
-  --link-color: currentColor;
-  --link-hover-color: hsl(0, 0%, 80%);
+  --link-color: #4a8bc2;
+  --link-hover-color: #2d3a5c;
 
-  --border-color: hsl(0, 0%, 25%);
-  --border-color-heavy: hsl(0, 0%, 32%);
+  --border-color: rgba(74, 139, 194, 0.2);
+  --border-color-heavy: rgba(74, 139, 194, 0.4);
 
-  --code-bg: var(--mine-shaft);
+  --code-bg: #e2e8f7;
 
   --body-font: "Roboto", arial, helvetica, sans-serif;
   --code-font: "Roboto Mono", monospace;
@@ -41,13 +41,13 @@
   --padding-md: clamp(1.5rem, 6%, 3rem);
   --padding-lg: clamp(3rem, 12%, 6rem);
 
-  --hex-bg: var(--black);
-  --hex-color: var(--white);
-  --hex-bg-hover: var(--tainted-black);
-  --hex-shadow: drop-shadow(0 0 1px rgb(255 255 255 / 40%)) drop-shadow(0 0 1px rgb(255 255 255 / 10%));
-  --hex-hover-shadow: drop-shadow(0 0 1px rgb(255 255 255 / 100%)) drop-shadow(0 0 1px rgb(255 255 255 / 10%));
+  --hex-bg: #ffffff;
+  --hex-color: #2d3a5c;
+  --hex-bg-hover: #e2e8f7;
+  --hex-shadow: drop-shadow(0 0 1px rgba(74,139,194,0.3)) drop-shadow(0 0 1px rgba(74,139,194,0.1));
+  --hex-hover-shadow: drop-shadow(0 0 1px rgba(74,139,194,0.8)) drop-shadow(0 0 1px rgba(74,139,194,0.2));
 
-  --accent: hsl(167, 100%, 41%);
+  --accent: #5998d6;
 }
 
 * {
@@ -75,7 +75,7 @@ a {
   color: var(--link-color);
   text-underline-offset: 0.13em;
   text-decoration-thickness: clamp(1.8px, 0.06em, 4px);
-  text-decoration-color: var(--lighter-gray);
+  text-decoration-color: var(--border-color);
 }
 
 a:hover {
@@ -90,8 +90,8 @@ section {
 }
 
 .hero {
-  background-color: var(--pitch-black);
-  color: var(--white);
+  background-color: #c8d6f1;
+  color: #1a2d4a;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -111,7 +111,7 @@ section {
 .hero-crystal {
   width: 260px;
   height: 260px;
-  filter: drop-shadow(0 0 16px rgba(255, 255, 255, 0.12));
+  filter: drop-shadow(0 0 16px rgba(137, 207, 240, 0.4));
 }
 
 #profile,
@@ -124,13 +124,13 @@ section {
 .hero-content h1 {
   font-size: clamp(2rem, 6vw, 3.5rem);
   font-weight: 300;
-  color: var(--white);
+  color: #1a2d4a;
   letter-spacing: -0.02em;
 }
 
 .hero-tagline {
   font-size: 1.1rem;
-  color: hsl(0, 0%, 65%);
+  color: var(--light-text);
   font-weight: 300;
 }
 
@@ -180,6 +180,58 @@ section {
 
 .aurora-text {
   color: var(--accent);
+}
+
+.navbar {
+  background: #ffffff;
+  border-bottom: 1px solid rgba(74, 139, 194, 0.15);
+}
+
+.sns-link {
+  background: #ffffff;
+  border: 1px solid var(--border-color);
+  color: var(--primary-text);
+}
+
+.sns-link:hover {
+  color: var(--accent);
+  border-color: var(--accent);
+}
+
+.card {
+  background: #ffffff;
+  border: 1px solid var(--border-color);
+  color: var(--primary-text);
+}
+
+.card:hover {
+  border-color: var(--accent);
+  background: var(--background-secondary);
+}
+
+.achievement-card {
+  background: #ffffff;
+  border: 1px solid var(--border-color);
+  color: var(--primary-text);
+}
+
+.achievement-card:hover {
+  border-color: var(--accent);
+}
+
+.item {
+  background: #ffffff;
+  border: 1px solid var(--border-color);
+}
+
+.severity-high {
+  background: #b91c1c;
+  color: white;
+}
+
+.severity-medium {
+  background: #b45309;
+  color: white;
 }
 
 @media (min-width: 768px) {

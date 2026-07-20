@@ -1,6 +1,14 @@
 ---
 const achievements = [
   {
+    title: 'MDEV-40336',
+    severity: 'HIGH',
+    score: '—',
+    description: 'MariaDB における SET SESSION AUTHORIZATION がパスワード期限切れ制限を回避できてしまうバグの報告',
+    type: 'Bug Report',
+    link: 'https://jira.mariadb.org/browse/MDEV-40336',
+  },
+  {
     title: 'CVE-2026-49991',
     severity: 'HIGH',
     score: '8.6',
@@ -17,7 +25,11 @@ const achievements = [
     {achievements.map((item) => (
       <a class="achievement-card" href={item.link} target="_blank" rel="noopener noreferrer">
         <div class="achievement-badge">
-          <img src="/icons/cve.png" alt="CVE" width="48" height="48" class="badge-icon" />
+          {item.score !== '—' ? (
+            <img src="/icons/cve.png" alt="CVE" width="48" height="48" class="badge-icon" />
+          ) : (
+            <span class="badge-label">{item.type}</span>
+          )}
           <span class="badge-score">{item.score}</span>
         </div>
         <div class="achievement-body">
@@ -48,10 +60,7 @@ const achievements = [
   .achievement-card {
     display: flex;
     flex-direction: column;
-    background: var(--tainted-black);
-    border: 1px solid var(--border-color);
     text-decoration: none;
-    color: var(--primary-text);
     transition: border-color 0.2s;
     overflow: hidden;
   }
@@ -76,10 +85,17 @@ const achievements = [
     height: 48px;
   }
 
+  .badge-label {
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: #556688;
+  }
+
   .badge-score {
     font-size: 1.5rem;
     font-weight: 500;
-    color: var(--accent);
+    color: #D6EBFC;
   }
 
   .achievement-body {
@@ -113,6 +129,11 @@ const achievements = [
 
   .severity-high {
     background: hsl(0, 80%, 40%);
+    color: white;
+  }
+
+  .severity-medium {
+    background: hsl(35, 80%, 40%);
     color: white;
   }
 
