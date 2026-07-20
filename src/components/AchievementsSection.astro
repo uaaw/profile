@@ -46,7 +46,7 @@ const achievements = [
   .section-title {
     font-size: 1.6rem;
     font-weight: 300;
-    color: var(--header-color);
+    color: #1a1e2e;
     margin-bottom: 2rem;
     letter-spacing: -0.02em;
   }
@@ -76,7 +76,11 @@ const achievements = [
     justify-content: center;
     gap: 0.25rem;
     padding: 1rem;
-    background: var(--mine-shaft);
+    background: rgba(30, 30, 40, 0.15);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    border-radius: 16px;
     min-width: 80px;
   }
 
@@ -89,13 +93,13 @@ const achievements = [
     font-size: 0.7rem;
     text-transform: uppercase;
     letter-spacing: 0.05em;
-    color: #556688;
+    color: #3a4060;
   }
 
   .badge-score {
     font-size: 1.5rem;
     font-weight: 500;
-    color: #D6EBFC;
+    color: #1a1e2e;
   }
 
   .achievement-body {
@@ -108,12 +112,12 @@ const achievements = [
   .achievement-title {
     font-weight: 500;
     font-size: 1.1rem;
-    color: var(--header-color);
+    color: #1a1e2e;
   }
 
   .achievement-desc {
     font-size: 0.85rem;
-    color: var(--light-gray);
+    color: #3a4060;
     line-height: 1.6;
   }
 

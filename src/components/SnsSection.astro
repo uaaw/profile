@@ -14,56 +14,67 @@ const links = [
 ---
 
 <section>
-  <h2 class="section-title">Links</h2>
-  <ul class="sns-grid">
-    {links.map((link) => (
-      <li class="sns-item">
-        {link.href ? (
-          <a
-            href={link.href}
-            target={link.href.startsWith('http') ? '_blank' : undefined}
-            rel={link.href.startsWith('http') ? 'noopener noreferrer' : undefined}
-            class="sns-link"
-            aria-label={link.name + ': ' + link.username}
-          >
-            <span class="sns-icon">
-              {link.icon ? (
-                <img src={link.icon} alt={link.name} width="24" height="24" />
-              ) : link.name === 'Web' ? (
-                <svg role="img" aria-label="Web" viewBox="0 0 24 24" width="24" height="24" xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                  <circle cx="12" cy="12" r="10"/>
-                  <line x1="2" y1="12" x2="22" y2="12"/>
-                  <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/>
-                </svg>
-              ) : null}
+  <div class="glass-card">
+    <h2 class="section-title">Links</h2>
+    <ul class="sns-grid">
+      {links.map((link) => (
+        <li class="sns-item">
+          {link.href ? (
+            <a
+              href={link.href}
+              target={link.href.startsWith('http') ? '_blank' : undefined}
+              rel={link.href.startsWith('http') ? 'noopener noreferrer' : undefined}
+              class="sns-link"
+              aria-label={link.name + ': ' + link.username}
+            >
+              <span class="sns-icon">
+                {link.icon ? (
+                  <img src={link.icon} alt={link.name} width="24" height="24" />
+                ) : link.name === 'Web' ? (
+                  <svg role="img" aria-label="Web" viewBox="0 0 24 24" width="24" height="24" xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="12" cy="12" r="10"/>
+                    <line x1="2" y1="12" x2="22" y2="12"/>
+                    <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/>
+                  </svg>
+                ) : null}
+              </span>
+              <span class="sns-name">{link.username}</span>
+            </a>
+          ) : (
+            <span class="sns-link no-link" aria-label={link.name}>
+              <span class="sns-icon">
+                {link.icon ? (
+                  <img src={link.icon} alt={link.name} width="24" height="24" />
+                ) : (
+                  <svg role="img" aria-label={link.name} viewBox="0 0 24 24" width="24" height="24" xmlns="http://www.w3.org/2000/svg">
+                    <circle cx="12" cy="12" r="10" fill="currentColor"/>
+                    <text x="12" y="16" text-anchor="middle" fill="#2d3a5c" font-size="10" font-family="sans-serif">{link.name[0]}</text>
+                  </svg>
+                )}
+              </span>
+              <span class="sns-name">{link.username}</span>
             </span>
-            <span class="sns-name">{link.username}</span>
-          </a>
-        ) : (
-          <span class="sns-link no-link" aria-label={link.name}>
-            <span class="sns-icon">
-              {link.icon ? (
-                <img src={link.icon} alt={link.name} width="24" height="24" />
-              ) : (
-                <svg role="img" aria-label={link.name} viewBox="0 0 24 24" width="24" height="24" xmlns="http://www.w3.org/2000/svg">
-                  <circle cx="12" cy="12" r="10" fill="currentColor"/>
-                  <text x="12" y="16" text-anchor="middle" fill="#2d3a5c" font-size="10" font-family="sans-serif">{link.name[0]}</text>
-                </svg>
-              )}
-            </span>
-            <span class="sns-name">{link.username}</span>
-          </span>
-        )}
-      </li>
-    ))}
-  </ul>
+          )}
+        </li>
+      ))}
+    </ul>
+  </div>
 </section>
 
 <style>
+  .glass-card {
+    background: rgba(30, 30, 40, 0.15);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    border-radius: 16px;
+    padding: 2rem;
+  }
+
   .section-title {
     font-size: 1.6rem;
     font-weight: 300;
-    color: var(--header-color);
+    color: #1a1e2e;
     margin-bottom: 2rem;
     letter-spacing: -0.02em;
   }
@@ -81,9 +92,11 @@ const links = [
     gap: 0.75rem;
     padding: 0.75rem 1rem;
     text-decoration: none;
-    color: var(--primary-text);
-    background: var(--tainted-black);
-    border: 1px solid var(--border-color);
+    color: #1a1e2e;
+    background: rgba(30, 30, 40, 0.15);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.15);
     transition: border-color 0.2s, color 0.2s;
   }
 
@@ -97,8 +110,8 @@ const links = [
   }
 
   .sns-link.no-link:hover {
-    color: var(--primary-text);
-    border-color: var(--border-color);
+    color: #1a1e2e;
+    border-color: rgba(255, 255, 255, 0.15);
   }
 
   .sns-icon {

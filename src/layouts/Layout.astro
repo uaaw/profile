@@ -29,11 +29,30 @@ const { title = 'Portfolio' } = Astro.props;
     <meta name="description" content="さいよわなジュニアエンジニアです…" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Roboto:wght@300;400;500&family=Roboto+Mono&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Crimson+Text:wght@400;600&family=Playfair+Display:wght@400;600;700&family=Roboto+Mono&display=swap" rel="stylesheet" />
     <title>{title}</title>
     <ClientRouter />
   </head>
   <body>
+    <div class="stars" id="stars"></div>
+    <script>
+      (function() {
+        const container = document.getElementById('stars');
+        if (!container) return;
+        for (let i = 0; i < 80; i++) {
+          const star = document.createElement('div');
+          star.className = 'star';
+          star.style.left = Math.random() * 100 + '%';
+          star.style.top = '-10px';
+          const size = Math.random() * 3 + 1.5;
+          star.style.width = size + 'px';
+          star.style.height = size + 'px';
+          star.style.animationDelay = Math.random() * 8 + 's';
+          star.style.animationDuration = (Math.random() * 4 + 6) + 's';
+          container.appendChild(star);
+        }
+      })();
+    </script>
     <slot />
   </body>
 </html>

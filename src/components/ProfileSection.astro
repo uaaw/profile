@@ -2,40 +2,51 @@
 ---
 
 <section>
-  <h2 class="section-title">Profile</h2>
-  <dl class="profile-list">
-    <div class="profile-item">
-      <dt>名前</dt>
-      <dd>eris / uaaw / nero</dd>
-    </div>
-    <div class="profile-item">
-      <dt>年齢</dt>
-      <dd>中学生（学年は非公開）</dd>
-    </div>
-    <div class="profile-item">
-      <dt>所属団体</dt>
-      <dd>The psf member</dd>
-    </div>
-    <div class="profile-item">
-      <dt>趣味・好きなこと</dt>
-      <dd>コーディング・ドメイン・技術者支援・ossへの貢献・歴史</dd>
-    </div>
-    <div class="profile-item">
-      <dt>一言</dt>
-      <dd>使ったことのある技術が多いだけのジュニアエンジニアです。</dd>
-    </div>
-    <div class="profile-item">
-      <dt>得意分野</dt>
-      <dd>文系科目とバックエンド</dd>
-    </div>
-  </dl>
+  <div class="glass-card">
+    <h2 class="section-title">Profile</h2>
+    <dl class="profile-list">
+      <div class="profile-item">
+        <dt>名前</dt>
+        <dd>eris / uaaw / nero</dd>
+      </div>
+      <div class="profile-item">
+        <dt>年齢</dt>
+        <dd>中学生（学年は非公開）</dd>
+      </div>
+      <div class="profile-item">
+        <dt>所属団体</dt>
+        <dd>The psf member</dd>
+      </div>
+      <div class="profile-item">
+        <dt>趣味・好きなこと</dt>
+        <dd>コーディング・ドメイン・技術者支援・ossへの貢献・歴史</dd>
+      </div>
+      <div class="profile-item">
+        <dt>一言</dt>
+        <dd>使ったことのある技術が多いだけのジュニアエンジニアです。</dd>
+      </div>
+      <div class="profile-item">
+        <dt>得意分野</dt>
+        <dd>文系科目とバックエンド</dd>
+      </div>
+    </dl>
+  </div>
 </section>
 
 <style>
+  .glass-card {
+    background: rgba(30, 30, 40, 0.15);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    border-radius: 16px;
+    padding: 2rem;
+  }
+
   .section-title {
     font-size: 1.6rem;
     font-weight: 300;
-    color: var(--header-color);
+    color: #1a1e2e;
     margin-bottom: 2rem;
     letter-spacing: -0.02em;
   }
@@ -54,13 +65,13 @@
   .profile-item dt {
     font-weight: 500;
     font-size: 0.85rem;
-    color: var(--light-gray);
+    color: #5a6078;
   }
 
   .profile-item dd {
     font-size: 1rem;
     line-height: 1.6;
-    color: var(--primary-text);
+    color: #1a1e2e;
   }
 
   @media (min-width: 640px) {
