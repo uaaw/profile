@@ -25,7 +25,6 @@ const contributions = [
         <a class="card" href={project.url} target="_blank" rel="noopener noreferrer">
           <h4 class="project-name">{project.name}</h4>
           <p class="project-desc">{project.description}</p>
-          <span class="project-link">{project.url}</span>
         </a>
       ))}
     </div>
@@ -38,7 +37,6 @@ const contributions = [
         <a class="card" href={project.url} target="_blank" rel="noopener noreferrer">
           <h4 class="project-name">{project.name}</h4>
           <p class="project-desc">{project.description}</p>
-          <span class="project-link">{project.url}</span>
         </a>
       ))}
     </div>
@@ -110,10 +108,4 @@ const contributions = [
     line-height: 1.5;
   }
 
-  .project-link {
-    font-size: 0.75rem;
-    color: var(--accent);
-    word-break: break-all;
-    text-decoration: none;
-  }
 </style>
