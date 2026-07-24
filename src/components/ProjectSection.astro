@@ -1,76 +1,106 @@
 ---
-const projects = [
-  {
-    name: 'fluxer-zig',
-    description: 'fluxer zigライブラリ',
-    url: 'https://github.com/uaaw/fluxer-zig.git',
-  },
-  {
-    name: 'purus',
-    description: 'A modern programming language',
-    url: 'https://github.com/puruslang/purus.git',
-  },
-  {
-    name: 'fluxer',
-    description: 'fluxer公式ウェブサイトの和訳監修',
-    url: 'https://github.com/fluxerapp/fluxer.git',
-  },
+const ownProjects = [
+  { name: 'fluxer-zig', description: 'fluxer zig ライブラリ', url: 'https://github.com/uaaw/fluxer-zig' },
+  { name: 'yuatube', description: 'SNSを1つにまとめる分散型サイト', url: 'https://github.com/uaaw/yuatube' },
+];
+
+const contributions = [
+  { name: 'kubernetes', description: '軽微なバグ修正', url: 'https://github.com/kubernetes/kubernetes' },
+  { name: 'mariadb', description: 'バグ報告', url: 'https://github.com/MariaDB/server' },
+  { name: 'sakura-editor', description: 'バグ報告', url: 'https://github.com/sakura-editor/sakura' },
+  { name: 'fluxer', description: '和訳監修 etc...', url: 'https://github.com/fluxerapp/fluxer' },
+  { name: 'pelican-panel', description: '和訳監修 etc...', url: 'https://github.com/pelican-dev/panel' },
+  { name: 'purus', description: 'サンプルコードの追加 etc...', url: 'https://github.com/puruslang/purus' },
+  { name: 'fullereneos', description: 'セキュリティ問題の報告 etc...', url: 'https://github.com/p14c31355/fullerene' },
 ];
 ---
 
 <section>
   <h2 class="section-title">Projects</h2>
-  <div class="projects-grid">
-    {
-      projects.map((project) => (
-        <a
-          class="card"
-          href={project.url}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h3 class="project-name">{project.name}</h3>
+
+  <div class="project-group">
+    <h3 class="group-title">My Projects</h3>
+    <div class="projects-grid">
+      {ownProjects.map((project) => (
+        <a class="card" href={project.url} target="_blank" rel="noopener noreferrer">
+          <h4 class="project-name">{project.name}</h4>
           <p class="project-desc">{project.description}</p>
           <span class="project-link">{project.url}</span>
         </a>
-      ))
-    }
+      ))}
+    </div>
+  </div>
+
+  <div class="project-group">
+    <h3 class="group-title">Contributions</h3>
+    <div class="projects-grid">
+      {contributions.map((project) => (
+        <a class="card" href={project.url} target="_blank" rel="noopener noreferrer">
+          <h4 class="project-name">{project.name}</h4>
+          <p class="project-desc">{project.description}</p>
+          <span class="project-link">{project.url}</span>
+        </a>
+      ))}
+    </div>
   </div>
 </section>
 
 <style>
   .section-title {
-    font-size: 1.6rem;
-    font-weight: 300;
+    font-size: 2rem;
+    font-weight: 600;
     color: #1a1e2e;
-    margin-bottom: 2rem;
+    margin-bottom: 1.2rem;
     letter-spacing: -0.02em;
+  }
+
+  .project-group {
+    margin-bottom: 2rem;
+  }
+
+  .group-title {
+    font-size: 1rem;
+    font-weight: 500;
+    color: #5a6078;
+    margin-bottom: 1rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
   }
 
   .projects-grid {
     display: grid;
     grid-template-columns: 1fr;
-    gap: 1rem;
+    gap: 0.75rem;
   }
 
   @media (min-width: 768px) {
     .projects-grid {
-      grid-template-columns: repeat(3, 1fr);
+      grid-template-columns: repeat(2, 1fr);
     }
   }
 
   .card {
     display: flex;
     flex-direction: column;
-    gap: 0.75rem;
-    padding: 1.5rem;
-    transition: border-color 0.2s, background 0.2s;
+    gap: 0.5rem;
+    padding: 1.25rem;
+    background: rgba(30, 30, 40, 0.15);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    border-radius: 16px;
     text-decoration: none;
+    transition: transform 0.2s, border-color 0.2s;
+  }
+
+  .card:hover {
+    transform: translateY(-2px);
+    border-color: var(--accent);
   }
 
   .project-name {
-    font-weight: 500;
-    font-size: 1.1rem;
+    font-weight: 600;
+    font-size: 1rem;
     color: #1a1e2e;
   }
 
@@ -81,7 +111,7 @@ const projects = [
   }
 
   .project-link {
-    font-size: 0.8rem;
+    font-size: 0.75rem;
     color: var(--accent);
     word-break: break-all;
     text-decoration: none;
