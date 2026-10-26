@@ -1,201 +1,224 @@
 ---
 const achievements = [
-  {
-    title: 'MCOL-6512',
-    severity: 'HIGH',
-    score: '—',
-    description: 'MariaDB ColumnStoreのMCSSETPARMS/CALSETPARMS UDFにおける入力長検証不備によるスタックバッファオーバーフローの報告（修正済み）',
-    type: 'Bug Report',
-    link: 'https://jira.mariadb.org/browse/MCOL-6512',
-  },
-  {
-    title: 'MDEV-40336',
-    severity: 'HIGH',
-    score: '—',
-    description: 'MariaDBにおけるSET SESSION AUTHORIZATIONがパスワード期限切れ制限を回避できてしまうバグの報告',
-    type: 'Bug Report',
-    link: 'https://jira.mariadb.org/browse/MDEV-40336',
-  },
-  {
-    title: 'CVE-2026-49991',
-    severity: 'HIGH',
-    score: '8.6',
-    description: 'RustFS v1.0.0-beta.4のSnowball自動展開機能におけるパストラバーサル + 認可不備によるマルチテナンシー分離回避',
-    type: 'Vulnerability',
-    link: 'https://github.com/rustfs/rustfs/security/advisories/GHSA-f4vq-9ffr-m8m3',
-  },
-  {
-    title: 'GHSA-jm6c-h95p-6qhj',
-    severity: 'MEDIUM',
-    score: '—',
-    description: 'NixデーモンにおけるRegisterDrvOutput呼び出し時の署名検証不備により、非特権ローカルユーザーがCA derivationの実現結果を汚染',
-    type: 'Vulnerability',
-    link: 'https://github.com/NixOS/nix/security/advisories/GHSA-jm6c-h95p-6qhj',
-  },
-  {
-    title: 'CVE-2026-91178',
-    severity: 'MEDIUM',
-    score: '—',
-    description: 'PipelockのURL DLPスキャナーをパス・クエリ分割によるシークレットの分離でバイパスできる脆弱性',
-    type: 'Vulnerability',
-    link: 'https://github.com/luckyPipewrench/pipelock/security/advisories/GHSA-r35g-2q75-49jr',
-  },
-  {
-    title: 'T8464',
-    severity: 'HIGH',
-    score: '—',
-    description: 'GnuPG dirmngrにおけるDNS標準リゾルバ使用時のCERTレコード解析によるヒープ範囲外読み取りの報告',
-    type: 'Bug Report',
-    link: 'https://dev.gnupg.org/T8464.html',
-  },
-  {
-    title: 'T8465',
-    severity: 'HIGH',
-    score: '—',
-    description: 'GnuPG commonのfind_tlvにおける複合DO解析時の宣言長検証不備による範囲外アクセスの報告',
-    type: 'Bug Report',
-    link: 'https://dev.gnupg.org/T8465.html',
-  },
-  {
-    title: 'CVE-2026-75804',
-    severity: 'LOW',
-    score: '—',
-    description: 'OpenSSLのQUICスタックにおけるコネクションレベルフロー制御の未強制により、リモートピアが1接続あたり約100MBのメモリ割当てを強制できる脆弱性',
-    type: 'Vulnerability',
-    link: 'https://openssl-library.org/news/vulnerabilities/#CVE-2026-75804',
-  },
+    {
+        title: "MCOL-6512",
+        severity: "HIGH",
+        score: "—",
+        description:
+            "MariaDB ColumnStoreのMCSSETPARMS/CALSETPARMS UDFにおける入力長検証不備によるスタックバッファオーバーフローの報告",
+        type: "Bug Report",
+        link: "https://jira.mariadb.org/browse/MCOL-6512",
+    },
+    {
+        title: "MDEV-40336",
+        severity: "HIGH",
+        score: "—",
+        description:
+            "MariaDBにおけるSET SESSION AUTHORIZATIONがパスワード期限切れ制限を回避できてしまうバグの報告",
+        type: "Bug Report",
+        link: "https://jira.mariadb.org/browse/MDEV-40336",
+    },
+    {
+        title: "CVE-2026-49991",
+        severity: "HIGH",
+        score: "8.6",
+        description:
+            "RustFS v1.0.0-beta.4のSnowball自動展開機能におけるパストラバーサル + 認可不備によるマルチテナンシー分離回避",
+        type: "Vulnerability",
+        link: "https://github.com/rustfs/rustfs/security/advisories/GHSA-f4vq-9ffr-m8m3",
+    },
+    {
+        title: "GHSA-jm6c-h95p-6qhj",
+        severity: "MEDIUM",
+        score: "—",
+        description:
+            "NixデーモンにおけるRegisterDrvOutput呼び出し時の署名検証不備により、非特権ローカルユーザーがCA derivationの実現結果を汚染",
+        type: "Vulnerability",
+        link: "https://github.com/NixOS/nix/security/advisories/GHSA-jm6c-h95p-6qhj",
+    },
+    {
+        title: "CVE-2026-91178",
+        severity: "MEDIUM",
+        score: "—",
+        description:
+            "PipelockのURL DLPスキャナーをパス・クエリ分割によるシークレットの分離でバイパスできる脆弱性",
+        type: "Vulnerability",
+        link: "https://github.com/luckyPipewrench/pipelock/security/advisories/GHSA-r35g-2q75-49jr",
+    },
+    {
+        title: "T8464",
+        severity: "HIGH",
+        score: "—",
+        description:
+            "GnuPG dirmngrにおけるDNS標準リゾルバ使用時のCERTレコード解析によるヒープ範囲外読み取りの報告",
+        type: "Bug Report",
+        link: "https://dev.gnupg.org/T8464.html",
+    },
+    {
+        title: "T8465",
+        severity: "HIGH",
+        score: "—",
+        description:
+            "GnuPG commonのfind_tlvにおける複合DO解析時の宣言長検証不備による範囲外アクセスの報告",
+        type: "Bug Report",
+        link: "https://dev.gnupg.org/T8465.html",
+    },
+    {
+        title: "CVE-2026-75804",
+        severity: "LOW",
+        score: "—",
+        description:
+            "OpenSSLのQUICスタックにおけるコネクションレベルフロー制御の未強制により、リモートピアが1接続あたり約100MBのメモリ割当てを強制できる脆弱性",
+        type: "Vulnerability",
+        link: "https://openssl-library.org/news/vulnerabilities/#CVE-2026-75804",
+    },
 ];
 ---
 
 <section>
-  <h2 class="section-title">Achievements</h2>
-  <div class="achievements-grid">
-    {achievements.map((item) => (
-      <a class="achievement-card" href={item.link} target="_blank" rel="noopener noreferrer">
-        <div class="achievement-badge">
-          {item.score !== '—' ? (
-            <img src="/icons/cve.png" alt="CVE" width="48" height="48" class="badge-icon" />
-          ) : (
-            <span class="badge-label">{item.type}</span>
-          )}
-          <span class="badge-score">{item.score}</span>
-        </div>
-        <div class="achievement-body">
-          <h3 class="achievement-title">{item.title}</h3>
-          <p class="achievement-desc">{item.description}</p>
-          <span class={`achievement-severity severity-${item.severity.toLowerCase()}`}>{item.severity}</span>
-        </div>
-      </a>
-    ))}
-  </div>
+    <h2 class="section-title">Achievements</h2>
+    <div class="achievements-grid">
+        {achievements.map((item) => (
+            <a
+                class="achievement-card"
+                href={item.link}
+                target="_blank"
+                rel="noopener noreferrer"
+            >
+                <div class="achievement-badge">
+                    {item.score !== "—" ? (
+                        <img
+                            src="/icons/cve.png"
+                            alt="CVE"
+                            width="48"
+                            height="48"
+                            class="badge-icon"
+                        />
+                    ) : (
+                        <span class="badge-label">{item.type}</span>
+                    )}
+                    <span class="badge-score">{item.score}</span>
+                </div>
+                <div class="achievement-body">
+                    <h3 class="achievement-title">{item.title}</h3>
+                    <p class="achievement-desc">{item.description}</p>
+                    <span
+                        class={`achievement-severity severity-${item.severity.toLowerCase()}`}
+                    >
+                        {item.severity}
+                    </span>
+                </div>
+            </a>
+        ))}
+    </div>
 </section>
 
 <style>
-  .section-title {
-    font-size: 1.6rem;
-    font-weight: 300;
-    color: #1a1e2e;
-    margin-bottom: 2rem;
-    letter-spacing: -0.02em;
-  }
+    .section-title {
+        font-size: 1.6rem;
+        font-weight: 300;
+        color: #1a1e2e;
+        margin-bottom: 2rem;
+        letter-spacing: -0.02em;
+    }
 
-  .achievements-grid {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 1rem;
-  }
+    .achievements-grid {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
 
-  .achievement-card {
-    display: flex;
-    flex-direction: column;
-    text-decoration: none;
-    transition: border-color 0.2s;
-    overflow: hidden;
-  }
-
-  .achievement-card:hover {
-    border-color: var(--accent);
-  }
-
-  .achievement-badge {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    gap: 0.25rem;
-    padding: 1rem;
-    background: rgba(30, 30, 40, 0.15);
-    backdrop-filter: blur(20px);
-    -webkit-backdrop-filter: blur(20px);
-    border: 1px solid rgba(255, 255, 255, 0.15);
-    border-radius: 16px;
-    min-width: 80px;
-  }
-
-  .badge-icon {
-    width: 48px;
-    height: 48px;
-  }
-
-  .badge-label {
-    font-size: 0.7rem;
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
-    color: #3a4060;
-  }
-
-  .badge-score {
-    font-size: 1.5rem;
-    font-weight: 500;
-    color: #1a1e2e;
-  }
-
-  .achievement-body {
-    display: flex;
-    flex-direction: column;
-    gap: 0.5rem;
-    padding: 1.25rem;
-  }
-
-  .achievement-title {
-    font-weight: 500;
-    font-size: 1.1rem;
-    color: #1a1e2e;
-  }
-
-  .achievement-desc {
-    font-size: 0.85rem;
-    color: #3a4060;
-    line-height: 1.6;
-  }
-
-  .achievement-severity {
-    display: inline-block;
-    width: fit-content;
-    padding: 0.2rem 0.6rem;
-    font-size: 0.75rem;
-    text-transform: uppercase;
-    font-weight: 500;
-    letter-spacing: 0.03em;
-  }
-
-  .severity-high {
-    background: hsl(0, 80%, 40%);
-    color: white;
-  }
-
-  .severity-medium {
-    background: hsl(35, 80%, 40%);
-    color: white;
-  }
-
-  @media (min-width: 640px) {
     .achievement-card {
-      flex-direction: row;
+        display: flex;
+        flex-direction: column;
+        text-decoration: none;
+        transition: border-color 0.2s;
+        overflow: hidden;
+    }
+
+    .achievement-card:hover {
+        border-color: var(--accent);
     }
 
     .achievement-badge {
-      padding: 1.5rem;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 0.25rem;
+        padding: 1rem;
+        background: rgba(30, 30, 40, 0.15);
+        backdrop-filter: blur(20px);
+        -webkit-backdrop-filter: blur(20px);
+        border: 1px solid rgba(255, 255, 255, 0.15);
+        border-radius: 16px;
+        min-width: 80px;
     }
-  }
+
+    .badge-icon {
+        width: 48px;
+        height: 48px;
+    }
+
+    .badge-label {
+        font-size: 0.7rem;
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
+        color: #3a4060;
+    }
+
+    .badge-score {
+        font-size: 1.5rem;
+        font-weight: 500;
+        color: #1a1e2e;
+    }
+
+    .achievement-body {
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;
+        padding: 1.25rem;
+    }
+
+    .achievement-title {
+        font-weight: 500;
+        font-size: 1.1rem;
+        color: #1a1e2e;
+    }
+
+    .achievement-desc {
+        font-size: 0.85rem;
+        color: #3a4060;
+        line-height: 1.6;
+    }
+
+    .achievement-severity {
+        display: inline-block;
+        width: fit-content;
+        padding: 0.2rem 0.6rem;
+        font-size: 0.75rem;
+        text-transform: uppercase;
+        font-weight: 500;
+        letter-spacing: 0.03em;
+    }
+
+    .severity-high {
+        background: hsl(0, 80%, 40%);
+        color: white;
+    }
+
+    .severity-medium {
+        background: hsl(35, 80%, 40%);
+        color: white;
+    }
+
+    @media (min-width: 640px) {
+        .achievement-card {
+            flex-direction: row;
+        }
+
+        .achievement-badge {
+            padding: 1.5rem;
+        }
+    }
 </style>
