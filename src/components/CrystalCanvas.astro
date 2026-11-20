@@ -1,4 +1,4 @@
-<canvas id="crystal-canvas" class="crystal-canvas"></canvas>
+<canvas id="crystal-canvas" class="crystal-canvas" aria-hidden="true"></canvas>
 
 <style>
   .crystal-canvas {
@@ -11,125 +11,119 @@
 <script>
   import * as THREE from 'three';
 
-  const canvas = document.getElementById('crystal-canvas');
-  if (!canvas) {
-    throw new Error('crystal-canvas not found');
-  }
+  let activeCleanup;
 
-  const parent = canvas.parentElement;
-  if (!parent) {
-    throw new Error('crystal-canvas parent not found');
-  }
+  function mountCrystal() {
+    if (activeCleanup) return;
 
-  const scene = new THREE.Scene();
+    const canvas = document.getElementById('crystal-canvas');
+    if (!(canvas instanceof HTMLCanvasElement)) return;
 
-  const camera = new THREE.PerspectiveCamera(
-    45,
-    parent.clientWidth / parent.clientHeight || 1,
-    0.1,
-    100
-  );
-  camera.position.z = 5;
+    const parent = canvas.parentElement;
+    if (!parent) return;
 
-  const renderer = new THREE.WebGLRenderer({ canvas, antialias: true, alpha: true });
-  renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+    const scene = new THREE.Scene();
+    const camera = new THREE.PerspectiveCamera(
+      45,
+      parent.clientWidth / parent.clientHeight || 1,
+      0.1,
+      100
+    );
+    camera.position.z = 5;
 
-  const material = new THREE.MeshStandardMaterial({
-    color: 0x7ecde8,
-    flatShading: true,
-    metalness: 0.05,
-    roughness: 0.6,
-    transparent: true,
-    opacity: 0.85,
-  });
-
-  const halfHeight = 1.5;
-  const radius = 0.8;
-  const segments = 6;
-
-  const topCone = new THREE.ConeGeometry(radius, halfHeight, segments, 1);
-  const bottomCone = new THREE.ConeGeometry(radius, halfHeight, segments, 1);
-
-  const topMesh = new THREE.Mesh(topCone, material);
-  topMesh.position.y = halfHeight / 2;
-
-  const bottomMesh = new THREE.Mesh(bottomCone, material);
-  bottomMesh.position.y = -halfHeight / 2;
-  bottomMesh.rotation.x = Math.PI;
-
-  const crystal = new THREE.Group();
-  crystal.add(topMesh);
-  crystal.add(bottomMesh);
-  scene.add(crystal);
-
-  const ambientLight = new THREE.AmbientLight(0xccddff, 0.5);
-  scene.add(ambientLight);
-
-  const dirLight = new THREE.DirectionalLight(0xffffff, 1.0);
-  dirLight.position.set(5, 5, 10);
-  scene.add(dirLight);
-
-  let animId;
-  let isAnimating = false;
-  const rotationSpeed = (Math.PI * 2) / 12;
-
-  function animate(time) {
-    animId = requestAnimationFrame(animate);
-    const delta = time / 1000;
-    crystal.rotation.y = delta * rotationSpeed;
-    renderer.render(scene, camera);
-  }
-
-  function startAnimation() {
-    if (!isAnimating) {
-      isAnimating = true;
-      animId = requestAnimationFrame(animate);
-    }
-  }
-
-  function handleResize() {
-    const width = parent.clientWidth;
-    const height = parent.clientHeight;
-    if (width === 0 || height === 0) return;
-    camera.aspect = width / height;
-    camera.updateProjectionMatrix();
-    renderer.setSize(width, height);
+    const renderer = new THREE.WebGLRenderer({ canvas, antialias: true, alpha: true });
     renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
-  }
 
-  function init() {
-    handleResize();
-    if (parent.clientWidth > 0 && parent.clientHeight > 0) {
-      startAnimation();
-    }
-  }
-
-  const resizeObserver = new ResizeObserver(() => {
-    handleResize();
-    if (!isAnimating && parent.clientWidth > 0 && parent.clientHeight > 0) {
-      startAnimation();
-    }
-  });
-  resizeObserver.observe(parent);
-
-  window.addEventListener('resize', handleResize);
-
-  function cleanup() {
-    cancelAnimationFrame(animId);
-    window.removeEventListener('resize', handleResize);
-    resizeObserver.disconnect();
-    scene.clear();
-    renderer.dispose();
-    crystal.traverse((child) => {
-      if (child instanceof THREE.Mesh) {
-        child.geometry.dispose();
-      }
+    const material = new THREE.MeshStandardMaterial({
+      color: 0x7ecde8,
+      flatShading: true,
+      metalness: 0.05,
+      roughness: 0.6,
+      transparent: true,
+      opacity: 0.85,
     });
-    material.dispose();
+
+    const halfHeight = 1.5;
+    const radius = 0.8;
+    const segments = 6;
+    const topCone = new THREE.ConeGeometry(radius, halfHeight, segments, 1);
+    const bottomCone = new THREE.ConeGeometry(radius, halfHeight, segments, 1);
+
+    const topMesh = new THREE.Mesh(topCone, material);
+    topMesh.position.y = halfHeight / 2;
+
+    const bottomMesh = new THREE.Mesh(bottomCone, material);
+    bottomMesh.position.y = -halfHeight / 2;
+    bottomMesh.rotation.x = Math.PI;
+
+    const crystal = new THREE.Group();
+    crystal.add(topMesh, bottomMesh);
+    scene.add(crystal);
+
+    const ambientLight = new THREE.AmbientLight(0xccddff, 0.5);
+    scene.add(ambientLight);
+
+    const dirLight = new THREE.DirectionalLight(0xffffff, 1.0);
+    dirLight.position.set(5, 5, 10);
+    scene.add(dirLight);
+
+    let frameId;
+    let isAnimating = false;
+    const rotationSpeed = (Math.PI * 2) / 12;
+
+    function animate(time) {
+      frameId = requestAnimationFrame(animate);
+      crystal.rotation.y = (time / 1000) * rotationSpeed;
+      renderer.render(scene, camera);
+    }
+
+    function startAnimation() {
+      if (isAnimating) return;
+      isAnimating = true;
+      frameId = requestAnimationFrame(animate);
+    }
+
+    function handleResize() {
+      const width = parent.clientWidth;
+      const height = parent.clientHeight;
+      if (width === 0 || height === 0) return;
+      camera.aspect = width / height;
+      camera.updateProjectionMatrix();
+      renderer.setSize(width, height);
+      renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+    }
+
+    const resizeObserver = new ResizeObserver(() => {
+      handleResize();
+      if (parent.clientWidth > 0 && parent.clientHeight > 0) startAnimation();
+    });
+    resizeObserver.observe(parent);
+    window.addEventListener('resize', handleResize);
+
+    function cleanup() {
+      cancelAnimationFrame(frameId);
+      window.removeEventListener('resize', handleResize);
+      resizeObserver.disconnect();
+      scene.clear();
+      renderer.dispose();
+      crystal.traverse((child) => {
+        if (child instanceof THREE.Mesh) child.geometry.dispose();
+      });
+      material.dispose();
+      activeCleanup = undefined;
+    }
+
+    activeCleanup = cleanup;
+    handleResize();
+    if (parent.clientWidth > 0 && parent.clientHeight > 0) startAnimation();
   }
 
-  init();
+  function unmountCrystal() {
+    activeCleanup?.();
+  }
 
-  document.addEventListener('astro:before-swap', cleanup, { once: true });
-  window.addEventListener('beforeunload', cleanup, { once: true });
+  mountCrystal();
+  document.addEventListener('astro:page-load', mountCrystal);
+  document.addEventListener('astro:before-swap', unmountCrystal);
+  window.addEventListener('beforeunload', unmountCrystal, { once: true });
 </script>

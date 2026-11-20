@@ -1,15 +1,18 @@
 ---
+import CrystalCanvas from './CrystalCanvas.astro';
 ---
 <nav class="navbar">
-  <a href="#hero" class="nav-brand">
-    <img src="/favicon.ico" alt="" width="24" height="24" class="nav-favicon" />
-    eris
+  <a href="/" class="nav-brand">
+    <span class="nav-crystal" aria-hidden="true">
+      <CrystalCanvas />
+    </span>
+    <span>eris</span>
   </a>
   <ul class="nav-links">
-    <li><a href="#profile">Profile</a></li>
-    <li><a href="#sns">Links</a></li>
-    <li><a href="#tech-stack">Tech Stack</a></li>
-    <li><a href="#projects">Projects</a></li>
+    <li><a href="/">About</a></li>
+    <li><a href="/vuln/">Vuln</a></li>
+    <li><a href="/project/">Project</a></li>
+    <li><a href="/tech-stack/">Tech Stack</a></li>
   </ul>
 </nav>
 
@@ -23,7 +26,8 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 0 2rem;
+    gap: 1rem;
+    padding: 0 clamp(0.75rem, 3vw, 2rem);
     height: 56px;
     background: rgba(30, 30, 40, 0.15);
     backdrop-filter: blur(20px);
@@ -32,6 +36,9 @@
   }
 
   .nav-brand {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
     font-family: 'Bebas Neue', sans-serif;
     color: #1a1e2e;
     font-size: 1.5rem;
@@ -44,21 +51,28 @@
     color: #4a5568;
   }
 
-  .nav-favicon {
+  .nav-crystal {
+    display: inline-block;
     width: 24px;
     height: 24px;
-    margin-right: 0.5rem;
-    vertical-align: middle;
-    border-radius: 2px;
+    flex: 0 0 24px;
   }
 
   .nav-links {
     display: flex;
     align-items: center;
-    gap: 1.5rem;
+    gap: clamp(0.75rem, 1.5vw, 1.5rem);
     list-style: none;
     margin: 0;
     padding: 0;
+    min-width: 0;
+    overflow-x: auto;
+    scrollbar-width: none;
+    white-space: nowrap;
+  }
+
+  .nav-links::-webkit-scrollbar {
+    display: none;
   }
 
   .nav-links a {
@@ -72,5 +86,21 @@
 
   .nav-links a:hover {
     color: #1a1e2e;
+  }
+
+  @media (max-width: 540px) {
+    .nav-brand {
+      font-size: 1.2rem;
+    }
+
+    .nav-crystal {
+      width: 20px;
+      height: 20px;
+      flex-basis: 20px;
+    }
+
+    .nav-links a {
+      font-size: 0.8rem;
+    }
   }
 </style>

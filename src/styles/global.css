@@ -75,53 +75,8 @@ section {
   color: var(--text-primary);
 }
 
-.hero {
-  color: #1a2d4a;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  min-height: 90vh;
-  padding: 6rem 2rem 3rem;
-  gap: 2rem;
-  text-align: center;
-  position: relative;
-  overflow: hidden;
-  background: transparent;
-}
-
-.hero > * {
-  position: relative;
-  z-index: 1;
-}
-
-.hero-crystal {
-  width: 260px;
-  height: 260px;
-  filter: drop-shadow(0 0 16px rgba(137, 207, 240, 0.4));
-}
-
-#profile,
-#sns,
-#tech-stack,
-#projects {
-  scroll-margin-top: 70px;
-}
-
-.hero-content h1 {
-  font-size: clamp(2rem, 6vw, 3.5rem);
-  font-weight: 300;
-  color: #1a2d4a;
-  text-shadow: none;
-  letter-spacing: -0.02em;
-  font-family: var(--heading-font);
-}
-
-.hero-tagline {
-  font-size: 1.1rem;
-  color: rgba(26, 45, 74, 0.75);
-  text-shadow: none;
-  font-weight: 300;
+main.page-content {
+  padding-top: 70px;
 }
 
 .card,
@@ -272,17 +227,4 @@ section {
   50% { background-position: 100% 50%; }
   75% { background-position: 50% 50%; }
   100% { background-position: 0% 50%; }
-}
-
-@media (min-width: 768px) {
-  .hero {
-    flex-direction: row;
-    text-align: left;
-    gap: 4rem;
-    padding: var(--padding-lg);
-  }
-
-  .hero-content h1 {
-    font-size: 3.5rem;
-  }
 }
