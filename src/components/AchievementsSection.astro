@@ -11,9 +11,11 @@ const achievements = [
     },
     {
         title: "SQLite dbdump",
+        severity: "MEDIUM",
+        score: "4.4",
         description:
             "SQLiteのオプションツールdbdumpが出力するダンプに、意図しないSQL文が混入しうる問題を報告",
-        type: "Bug Report",
+        type: "Vulnerability",
         link: "https://sqlite.org/bugs/forumpost/1bf239244b",
     },
     {
@@ -55,7 +57,7 @@ const achievements = [
     {
         title: "GHSA-jm6c-h95p-6qhj",
         severity: "MEDIUM",
-        score: "—",
+        score: "4.7",
         description:
             "NixデーモンにおけるRegisterDrvOutput呼び出し時の署名検証不備により、非特権ローカルユーザーがCA derivationの実現結果を汚染",
         type: "Vulnerability",
@@ -64,7 +66,7 @@ const achievements = [
     {
         title: "CVE-2026-91178",
         severity: "MEDIUM",
-        score: "—",
+        score: "5.8",
         description:
             "PipelockのURL DLPスキャナーをパス・クエリ分割によるシークレットの分離でバイパスできる脆弱性",
         type: "Vulnerability",
@@ -72,20 +74,20 @@ const achievements = [
     },
     {
         title: "T8464",
-        severity: "HIGH",
-        score: "—",
+        severity: "MEDIUM",
+        score: "4.3",
         description:
             "GnuPG dirmngrにおけるDNS標準リゾルバ使用時のCERTレコード解析によるヒープ範囲外読み取りの報告",
-        type: "Bug Report",
+        type: "Vulnerability",
         link: "https://dev.gnupg.org/T8464.html",
     },
     {
         title: "T8465",
-        severity: "HIGH",
-        score: "—",
+        severity: "MEDIUM",
+        score: "5.9",
         description:
             "GnuPG commonのfind_tlvにおける複合DO解析時の宣言長検証不備による範囲外アクセスの報告",
-        type: "Bug Report",
+        type: "Vulnerability",
         link: "https://dev.gnupg.org/T8465.html",
     },
     {
