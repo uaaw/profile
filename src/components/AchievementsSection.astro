@@ -1,6 +1,31 @@
 ---
 const achievements = [
     {
+        title: "GHSA-hcr9-7hcr-mjm8",
+        severity: "MEDIUM",
+        score: "5.3",
+        description:
+            "Ghosttyのtmux制御モードで、スクロール範囲の処理中にアプリ全体がクラッシュする問題を報告",
+        type: "Vulnerability",
+        link: "https://github.com/ghostty-org/ghostty/security/advisories/GHSA-hcr9-7hcr-mjm8",
+    },
+    {
+        title: "SQLite dbdump",
+        description:
+            "SQLiteのオプションツールdbdumpが出力するダンプに、意図しないSQL文が混入しうる問題を報告",
+        type: "Bug Report",
+        link: "https://sqlite.org/bugs/forumpost/1bf239244b",
+    },
+    {
+        title: "GHSA-9rcf-wx52-g3qx",
+        severity: "HIGH",
+        score: "8.1",
+        description:
+            "ElysiaのJITモードでCookieの真偽値が正しく反映されず、アプリがアクセス権を誤判定する場合がある問題を報告",
+        type: "Vulnerability",
+        link: "https://github.com/elysiajs/elysia/security/advisories/GHSA-9rcf-wx52-g3qx",
+    },
+    {
         title: "MCOL-6512",
         severity: "MEDIUM",
         score: "—",
@@ -86,27 +111,17 @@ const achievements = [
                 rel="noopener noreferrer"
             >
                 <div class="achievement-badge">
-                    {item.score !== "—" ? (
-                        <img
-                            src="/icons/cve.png"
-                            alt="CVE"
-                            width="48"
-                            height="48"
-                            class="badge-icon"
-                        />
-                    ) : (
-                        <span class="badge-label">{item.type}</span>
-                    )}
-                    <span class="badge-score">{item.score}</span>
+                    <span class="badge-label">{item.type}</span>
+                    {item.score && <span class="badge-score">{item.score}</span>}
                 </div>
                 <div class="achievement-body">
                     <h3 class="achievement-title">{item.title}</h3>
                     <p class="achievement-desc">{item.description}</p>
-                    <span
-                        class={`achievement-severity severity-${item.severity.toLowerCase()}`}
-                    >
-                        {item.severity}
-                    </span>
+                    {item.severity && (
+                        <span class={`achievement-severity severity-${item.severity.toLowerCase()}`}>
+                            {item.severity}
+                        </span>
+                    )}
                 </div>
             </a>
         ))}
@@ -153,11 +168,6 @@ const achievements = [
         border: 1px solid rgba(255, 255, 255, 0.15);
         border-radius: 16px;
         min-width: 80px;
-    }
-
-    .badge-icon {
-        width: 48px;
-        height: 48px;
     }
 
     .badge-label {
